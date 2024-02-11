@@ -1,9 +1,9 @@
 #задание 1
 
 SELECT с.login,
-       COUNT(о.id) as orders_count
-FROM "Couriers" as a
-JOIN "Orders" AS o ON c.id = o."courierId"
+       COUNT(о."courierId") as orders_count
+FROM "Couriers" as c
+INNER JOIN "Orders" AS o ON c.id = o."courierId"
 WHERE o."inDelivery" = true
 GROUP BY c.login;
 
